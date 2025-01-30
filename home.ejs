@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M² Sports | Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #003d7a, #007bff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: white;
+            text-align: center;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .title {
+            font-size: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 22px;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #d1ecf1;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+            display: inline-block;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-register {
+            background: #28a745;
+        }
+        
+        .btn-register:hover {
+            background: #218838;
+            transform: translateY(-3px);
+        }
+
+        .btn-login {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .btn-login:hover {
+            background: #e0a800;
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .footer a {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">M² Sports</div>
+        <div class="tagline">Empowering Athletes, Simplifying Management</div>
+
+        <div class="buttons">
+            <a href="/register" class="btn btn-register">Register</a>
+            <a href="/login" class="btn btn-login">Login</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        Developed by Bhavya Manvitha Chinni | Contact: <a href="mailto:your-email@example.com">bhavyamanvitha@gmail.com</a>
+    </div>
+</body>
+</html>

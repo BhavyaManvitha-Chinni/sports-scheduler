@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sports Sessions and Players Report</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Sport Name</th>
+                    <th>Session ID</th>
+                    <th>Venue</th>
+                    <th>Date & Time</th>
+                    <th>Players Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% report.forEach(item => { %>
+                    <tr>
+                        <td><%= item.sport_name %></td>
+                        <td><%= item.session_id %></td>
+                        <td><%= item.venue %></td>
+                        <td><%= new Date(item.date_time).toLocaleString() %></td>
+                        <td><%= item.player_name || 'No players joined' %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <a href="/admin-dashboard" class="btn">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

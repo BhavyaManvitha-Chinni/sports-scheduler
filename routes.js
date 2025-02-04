@@ -9,7 +9,7 @@ const app = express();
 
 // Session Middleware
 app.use(session({
-    secret: 'your-secret-key', // You can use any secret key
+    secret: 'your-secret-key', 
     resave: false,
     saveUninitialized: true
 }));
@@ -225,7 +225,7 @@ router.post('/sessions/join/:id', isAuthenticated, async (req, res) => {
             } else {
                 return res.redirect('/player-dashboard');
             }
-            alert("session is over"); // Or redirect to an appropriate page (admin/dashboard)
+            alert("session is over"); 
         }
 
         // Check if the user is already a participant in the session

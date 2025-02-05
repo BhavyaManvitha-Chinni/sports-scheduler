@@ -24,7 +24,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Your routes and other middleware...
+
 
 
 // Middleware to check authentication
@@ -42,7 +42,7 @@ const isAdmin = (req, res, next) => {
 // Home Page
 router.get('/', (req, res) => res.render('home'));
 
-// Register Route (Handles Duplicate Emails)
+// Register Route 
 router.get('/register', (req, res) => res.render('register'));
 
 router.post('/register', async (req, res) => {
@@ -123,7 +123,7 @@ router.get('/admin-dashboard', isAdmin, async (req, res) => {
     }
 });
 
-// Create Sport Route (No changes)
+// Create Sport Route 
 router.post('/admin/add-sport', isAdmin, async (req, res) => {
     try {
         await pool.query('INSERT INTO sports (name) VALUES ($1)', [req.body.sport_name]);
@@ -137,9 +137,9 @@ router.post('/admin/add-sport', isAdmin, async (req, res) => {
 // Player Dashboard
 router.get('/player-dashboard', isAuthenticated, async (req, res) => {
     try {
-        const userId = req.session.user.id; // Use req.session.user instead of req.user
+        const userId = req.session.user.id; 
 
-        // Fetch available sports
+        
         const sportsQuery = 'SELECT * FROM sports';
         const sportsResult = await pool.query(sportsQuery);
 
@@ -166,7 +166,7 @@ router.get('/player-dashboard', isAuthenticated, async (req, res) => {
         res.render('player-dashboard', { 
             sessions: sessionsResult.rows, 
             sports: sportsResult.rows,
-            joinedSessions: joinedSessionsResult.rows // ✅ Now included
+            joinedSessions: joinedSessionsResult.rows // 
         });
 
     } catch (error) {
@@ -189,9 +189,9 @@ router.post('/sessions', isAuthenticated, async (req, res) => {
 
         // Redirect based on role
         if (user.role === 'admin') {
-            res.redirect('/admin-dashboard'); // Redirect admin to admin dashboard
+            res.redirect('/admin-dashboard'); 
         } else {
-            res.redirect('/player-dashboard'); // Redirect players to player dashboard
+            res.redirect('/player-dashboard'); 
         }
 
     } catch (error) {
@@ -207,7 +207,6 @@ router.post('/sessions/join/:id', isAuthenticated, async (req, res) => {
         const userId = req.session.user.id; 
         const userRole = req.session.user.role; 
 
-        // Fetch the session details to check its date
         const sessionQuery = await pool.query(
             'SELECT * FROM sessions WHERE id = $1',
             [sessionId]
